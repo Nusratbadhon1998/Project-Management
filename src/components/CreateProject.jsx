@@ -4,7 +4,7 @@ import Button from './Button'
 
 function CreateProject() {
   return (
-    <div className='w-1/2 p-5 mt-12'>
+    <div className='w-1/2 p-5 mt-5'>
         <div className='flex justify-end items-baseline gap-7'>
             <button>Cancel</button>
             <Button>Save</Button>

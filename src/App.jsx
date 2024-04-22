@@ -11,12 +11,30 @@ function App() {
     tasks: [],
   });
 
+  const handleAddProject = () => {
+    setProjectState((prevState) => ({
+      ...prevState,
+      selectedProject: null,
+    }));
+  };
+
+  let content;
+
+  if (projectState.selectedProject === null) {
+    content = <CreateProject></CreateProject>;
+  } else if (projectState.selectedProject === undefined) {
+    content = <NoProjectSelected></NoProjectSelected>;
+  }
+  const allValue = {
+    projectState,
+    setProjectState,
+    handleAddProject,
+  };
   return (
-    <AppContext.Provider>
+    <AppContext.Provider value={allValue}>
       <main className="flex">
         <Sidebar></Sidebar>
-        {/* <NoProjectSelected></NoProjectSelected> */}
-        <CreateProject></CreateProject>
+        {content}
       </main>
     </AppContext.Provider>
   );
